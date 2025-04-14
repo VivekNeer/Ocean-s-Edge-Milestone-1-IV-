@@ -4,9 +4,9 @@ import { Container, Card, Row, Col, Badge, Button, Modal, Form } from 'react-boo
 // Import local images
 import beachFestival from '../assets/beach1.jpg';
 import yoga from '../assets/yoga.jpg';
-import foodCarnival from '../assets/foodCarnival.jpg';
+import foodCarnival from '../assets/foodcarnival.jpg';
 import sandArt from '../assets/sandart.png'
-import nightConcert from '../assets/nightConcert.jpg';
+import nightConcert from '../assets/nightconcert.jpg';
 import kiteFlying from '../assets/kite.jpg';
 
 const events = [
