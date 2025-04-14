@@ -15,7 +15,6 @@ function NavbarComponent() {
             <Nav.Link as={Link} to="/">Home</Nav.Link>
             <Nav.Link as={Link} to="/events">Events</Nav.Link>
             <Nav.Link as={Link} to="/calendar">Festival Calendar</Nav.Link>
-            <Nav.Link as={Link} to="/attractions">Beach Attractions</Nav.Link>
             <Nav.Link as={Link} to="/reviews">Reviews</Nav.Link>
             <Nav.Link as={Link} to="/login">Login</Nav.Link>
             <Nav.Item>

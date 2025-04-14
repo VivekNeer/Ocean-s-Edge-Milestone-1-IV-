@@ -5,6 +5,8 @@ import EventsPage from '../src/pages/Event';
 import CalendarPage from '../src/pages/Calender';
 import ReviewsPage from '../src/pages/Reviews'; 
 import NavbarComponent from './components/Navbar';
+import LoginPage from '../src/pages/LoginPage';
+import SignupPage from '../src/pages/SignupPage';
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
         <Route path="/events" element={<EventsPage />} />
         <Route path="/calendar" element={<CalendarPage />} />
         <Route path="/reviews" element={<ReviewsPage />} /> 
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
       </Routes>
     </>
   );

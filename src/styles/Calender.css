@@ -1,0 +1,17 @@
+.react-calendar__tile {
+    position: relative;
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  .event-indicator-wrapper {
+    height: 18px;
+    margin-top: 4px;
+  }
+  
+  .event-indicator {
+    font-size: 0.75rem;
+  }

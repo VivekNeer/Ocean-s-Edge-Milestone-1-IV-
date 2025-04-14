@@ -3,21 +3,63 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import { Container, ListGroup, Card, Row, Col } from 'react-bootstrap';
 import { CalendarEvent, GeoAltFill } from 'react-bootstrap-icons';
+import '../styles/Calender.css';
 
-const events = [
-  { date: new Date(2025, 4, 10), title: 'Beach Festival', location: 'Panambur Beach' },
-  { date: new Date(2025, 4, 12), title: 'Sunset Yoga Session', location: 'Tannirbhavi Beach' },
-  { date: new Date(2025, 4, 14), title: 'Food Carnival', location: 'Someshwar Beach' },
-  { date: new Date(2025, 4, 18), title: 'Sand Art Competition', location: 'Panambur Beach' },
-  { date: new Date(2025, 4, 20), title: 'Night Beach Concert', location: 'Tannirbhavi Beach' },
-  { date: new Date(2025, 4, 22), title: 'Kite Flying Contest', location: 'Ullal Beach' },
+const sampleTitles = [
+  'Beach Festival',
+  'Sunset Yoga',
+  'Food Carnival',
+  'Sand Art Showdown',
+  'Night Beach Concert',
+  'Kite Flying Contest',
+  'Marine Photography Workshop',
+  'Surfing Lessons',
+  'Eco Beach Cleanup',
+  'Full Moon Party',
 ];
+
+const sampleLocations = [
+  'Panambur Beach',
+  'Tannirbhavi Beach',
+  'Someshwar Beach',
+  'Ullal Beach',
+];
+
+function generateEvents2025() {
+  const events = [];
+
+  for (let month = 0; month < 12; month++) {
+    const numEvents = 2 + Math.floor(Math.random() * 3); // 2 to 4 events
+    const usedDays = new Set();
+
+    for (let i = 0; i < numEvents; i++) {
+      let day;
+      do {
+        day = 1 + Math.floor(Math.random() * 28); // Avoid invalid dates
+      } while (usedDays.has(day));
+      usedDays.add(day);
+
+      events.push({
+        date: new Date(2025, month, day),
+        title: sampleTitles[Math.floor(Math.random() * sampleTitles.length)],
+        location: sampleLocations[Math.floor(Math.random() * sampleLocations.length)],
+      });
+    }
+  }
+
+  return events;
+}
+
+const allEvents = generateEvents2025();
 
 function CalendarPage() {
   const [selectedDate, setSelectedDate] = useState(new Date());
 
   const getEventsForDate = (date) =>
-    events.filter((event) => event.date.toDateString() === date.toDateString());
+    allEvents.filter((event) => event.date.toDateString() === date.toDateString());
+
+  const hasEvent = (date) =>
+    allEvents.some((event) => event.date.toDateString() === date.toDateString());
 
   const matchedEvents = getEventsForDate(selectedDate);
 
@@ -30,6 +72,13 @@ function CalendarPage() {
             onChange={setSelectedDate}
             value={selectedDate}
             className="w-100 shadow-sm p-2 rounded"
+            tileContent={({ date, view }) => (
+              <div className="event-indicator-wrapper">
+                {view === 'month' && hasEvent(date) && (
+                  <div className="event-indicator">🔵</div>
+                )}
+              </div>
+            )}
           />
         </Col>
       </Row>

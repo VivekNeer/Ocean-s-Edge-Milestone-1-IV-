@@ -1,7 +1,15 @@
 import React from 'react';
 import { Container, Button, Row, Col, Card, Carousel, Form } from 'react-bootstrap';
 
+// Import local images
+import beach1 from '../assets/beach1.jpg';
+import festival1 from '../assets/festival1.jpg';
+import festival2 from '../assets/festival2.jpg';
+import mangaloreBeach from '../assets/mangalore.jpg';
+
 function HomePage() {
+  const eventImages = [festival1, festival2, beach1];
+
   return (
     <div>
       {/* Hero Section */}
@@ -15,14 +23,14 @@ function HomePage() {
       <Container className="my-5">
         <Carousel>
           <Carousel.Item>
-            <img className="d-block w-100" src="https://source.unsplash.com/900x300/?beach,festival" alt="First slide" />
+            <img className="d-block w-100" src={beach1} alt="First slide" />
             <Carousel.Caption>
               <h3>Panambur Beach Festival</h3>
               <p>Experience the rhythm of the waves and music together!</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
-            <img className="d-block w-100" src="https://source.unsplash.com/900x300/?beach,concert" alt="Second slide" />
+            <img className="d-block w-100" src={festival1} alt="Second slide" />
             <Carousel.Caption>
               <h3>Sunset Concerts</h3>
               <p>Live performances as the sun sets behind the waves.</p>
@@ -35,10 +43,10 @@ function HomePage() {
       <Container className="my-5">
         <h2 className="text-center mb-4">🎉 Featured Events</h2>
         <Row>
-          {[1, 2, 3].map((event, idx) => (
+          {eventImages.map((img, idx) => (
             <Col md={4} key={idx}>
               <Card className="mb-4 shadow-sm">
-                <Card.Img variant="top" src={`https://source.unsplash.com/400x250/?festival,${idx}`} />
+                <Card.Img variant="top" src={img} />
                 <Card.Body>
                   <Card.Title>Beach Festival {idx + 1}</Card.Title>
                   <Card.Text>
@@ -65,7 +73,7 @@ function HomePage() {
             </ul>
           </Col>
           <Col md={6}>
-            <img src="https://source.unsplash.com/600x400/?mangalore,beach" alt="Beaches" className="img-fluid rounded shadow" />
+            <img src={mangaloreBeach} alt="Beaches" className="img-fluid rounded shadow" />
           </Col>
         </Row>
       </Container>

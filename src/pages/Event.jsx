@@ -1,47 +1,55 @@
 import React, { useState } from 'react';
 import { Container, Card, Row, Col, Badge, Button, Modal, Form } from 'react-bootstrap';
 
+// Import local images
+import beachFestival from '../assets/beach1.jpg';
+import yoga from '../assets/yoga.jpg';
+import foodCarnival from '../assets/foodCarnival.jpg';
+import sandArt from '../assets/sandart.png'
+import nightConcert from '../assets/nightConcert.jpg';
+import kiteFlying from '../assets/kite.jpg';
+
 const events = [
   {
     title: 'Beach Festival',
     date: 'May 10, 2025',
     location: 'Panambur Beach',
-    image: 'https://source.unsplash.com/300x200/?beach,festival',
+    image: beachFestival,
     category: 'Festival',
   },
   {
     title: 'Sunset Yoga Session',
     date: 'May 12, 2025',
     location: 'Tannirbhavi Beach',
-    image: 'https://source.unsplash.com/300x200/?yoga,beach',
+    image: yoga,
     category: 'Wellness',
   },
   {
     title: 'Food Carnival',
     date: 'May 14, 2025',
     location: 'Someshwar Beach',
-    image: 'https://source.unsplash.com/300x200/?beach,food',
+    image: foodCarnival,
     category: 'Food & Fun',
   },
   {
     title: 'Sand Art Competition',
     date: 'May 18, 2025',
     location: 'Panambur Beach',
-    image: 'https://source.unsplash.com/300x200/?sand,art',
+    image: sandArt,
     category: 'Art',
   },
   {
     title: 'Night Beach Concert',
     date: 'May 20, 2025',
     location: 'Tannirbhavi Beach',
-    image: 'https://source.unsplash.com/300x200/?concert,night',
+    image: nightConcert,
     category: 'Music',
   },
   {
     title: 'Kite Flying Contest',
     date: 'May 22, 2025',
     location: 'Ullal Beach',
-    image: 'https://source.unsplash.com/300x200/?kite,beach',
+    image: kiteFlying,
     category: 'Games',
   },
 ];
@@ -75,7 +83,12 @@ function EventsPage() {
         {events.map((event, index) => (
           <Col md={4} sm={6} xs={12} key={index} className="mb-4">
             <Card className="h-100 shadow-sm">
-              <Card.Img variant="top" src={event.image} alt={event.title} />
+              <Card.Img 
+                variant="top" 
+                src={event.image} 
+                alt={event.title}
+                style={{ height: '200px', objectFit: 'cover' }}
+              />
               <Card.Body className="d-flex flex-column justify-content-between">
                 <div>
                   <Card.Title>{event.title}</Card.Title>
